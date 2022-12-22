@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>PHP Component</h2>
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+    <div class="content">
+        <h2 class="title">File Delete</h2>
+        <div class="code">
+<pre>
+	if(isset($_GET['image'])){
+		
+		$image = $_GET['image'];
+		if($image != ""){
+			$path = "../images/food/".$image;
+			$remove = unlink($path);
+			if($remove == false){
+				$_SESSION['remove'] = "&lt;div class='error text-center'>Field to remove food image.&lt;/div>";
+				header('location:'.SITEURL.'admin/food.php');
+				die();
+			}
+		}
+	}
+	else{
+		header('location:'.SITEURL.'any.php');
+	}	
+</pre>
+<h3>Receive Session</h3>
+<pre>
+    if(isset($_SESSION['remove'])){
+        echo $_SESSION['remove'];
+        echo "&lt;br>";
+        unset($_SESSION['remove']);
+    }
+</pre>
+        </div>
+    </div>
+    <footer>
+        <p>
+            By Md. Ismail. Chittagong, Bangladesh
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>PHP Component</h2>
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+    <div class="content">
+        <h2 class="title">Update</h2>
+        <div class="code">
+            <h3>Select Data</h3>
+<pre>
+    if(isset($_GET['id'])){
+        $id =$_GET['id'];
+        $sql = "SELECT * FROM users WHERE id='$id'";
+        $res = mysqli_query($conn, $sql);
+        if($res == true){
+            $count = mysqli_num_rows($res);
+            if($count == 1){
+                $row = mysqli_fetch_assoc($res);
+                $name = $row['name'];
+                $email = $row['email'];
+                $phone = $row['phone'];
+                $address = $row['address'];
+            }
+        }
+    }
+</pre>
+            <h3>Update Data</h3>
+<pre>
+    if(isset($_REQUEST['submit'])){
+        $id = $_REQUEST['id'];
+        $name =$_REQUEST['name'];
+        $email =$_REQUEST['email'];
+        $phone =$_REQUEST['phone'];
+        $address =$_REQUEST['address'];
+        
+        $sql2 = "UPDATE users SET
+            name = '$name',
+            email = '$email',
+            phone = '$phone',
+            address = '$address'
+            WHERE id='$id'
+        ";
+        $res2 = mysqli_query($conn, $sql2);
+        if($res2 == true){
+            ?>
+            &lt;script>&lt;?php echo("location.href = 'index.php';");?>&lt;/script>
+            &lt;?php
+            
+        }
+    }
+</pre>
+<h3>Receive Session</h3>
+<pre>
+    if(isset($_SESSION['update'])){
+        echo $_SESSION['update'];
+        echo "&lt;br>";
+        unset($_SESSION['update']);
+    }
+</pre>
+        </div>
+    </div>
+    <footer>
+        <p>
+            By Md. Ismail. Chittagong, Bangladesh
+        </p>
+    </footer>
+</body>
+</html>

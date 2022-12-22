@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>User Management</h2>
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+    <div class="content">
+        <h2 class="title">Connection</h2>
+        <div class="code">
+<pre>
+    //Start Session
+    session_start();
+    
+    //Connection
+    define('LOCALHOST', 'host name');
+    define('USERNAME', 'root');
+    define('PASSWORD', '');
+    define('DATABASE', 'db name');
+    $conn = mysqli_connect(LOCALHOST,USERNAME,PASSWORD) or die(mysqli_error());
+    $db_select = mysqli_select_db($conn,DATABASE) or die(mysqli_error());
+</pre>
+        </div>
+    </div>
+    <footer>
+        <p>
+            By Md. Ismail. Chittagong, Bangladesh
+        </p>
+    </footer>
+</body>
+</html>

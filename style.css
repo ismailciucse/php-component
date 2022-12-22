@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  background-color: #04aa6d;
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.home-btn {
+  text-decoration: none;
+  background: red;
+  color: #fff;
+  padding: 7px 30px;
+  display: inline-block;
+  margin-top: 5px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+.content {
+  width: 85%;
+  margin: 30px auto;
+}
+.menu {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.menu li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px 8px;
+}
+.menu li a {
+  text-decoration: none;
+  background-color: rgb(57, 3, 94);
+  color: #fff;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: 0.5s;
+  height: 50px;
+  width: 100px;
+  font-size: 18px;
+}
+.menu li a span {
+  margin: 16px 0;
+  display: block;
+}
+.menu li a:hover {
+  background-color: #04aa6d;
+}
+footer {
+  background: #04aa6d;
+  padding: 15px 0;
+  text-align: center;
+  color: #fff;
+}
+h2.title {
+  text-align: center;
+  color: rgb(57, 3, 94);
+  margin: 20px 0;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+pre {
+  border-left: 3px solid rgb(57, 3, 94);
+}
+h3 {
+  margin: 20px 0;
+  text-decoration: underline;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>PHP Component</h2>
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+    <div class="content">
+        <h2 class="title">Insert</h2>
+        <div class="code">
+<pre>
+    if(isset($_REQUEST['submit'])){
+        $name =$_REQUEST['name'];
+        $email =$_REQUEST['email'];
+        $phone =$_REQUEST['phone'];
+        $address =$_REQUEST['address'];
+        
+        $sql = "INSERT INTO users SET
+            name = '$name',
+            email = '$email',
+            phone = '$phone',
+            address = '$address'
+        ";
+        $res = mysqli_query($conn, $sql);
+        if($res == true){
+            ?>
+            &lt;script>&lt;?php echo("location.href = 'index.php';");?>&lt;/script>
+            &lt;?php
+        }
+    }
+</pre>
+<h3>Receive Session</h3>
+<pre>
+    if(isset($_SESSION['add'])){
+        echo $_SESSION['add'];
+        echo "&lt;br>";
+        unset($_SESSION['add']);
+    }
+</pre>
+        </div>
+    </div>
+    <footer>
+        <p>
+            By Md. Ismail. Chittagong, Bangladesh
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>PHP Component</h2>
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+    <div class="content">
+        <h2 class="title">File Update</h2>
+        <div class="code">
+<pre>
+    $current_image = mysqli_real_escape_string($conn, $_REQUEST['current_image']);
+    
+    if(isset($_FILES['new_image']['name'])){
+        if($new_image != ""){
+            $file_string = explode(".",$new_image);
+            $ext = end($file_string);
+            $new_image = "food-name-".rand(0000,9999).'.'.$ext;
+            
+            $source_path = $_FILES['new_image']['tmp_name'];
+            $destination_path = "../images/".$new_image;
+            // Upload image
+            $upload = move_uploaded_file($source_path, $destination_path);
+            if($upload ==  false){
+                $_SESSION['upload'] = "&lt;div class='error text-center'>Field to upload image.&lt;/div>";
+                header('location:'.SITEURL.'file-upload.php');
+                die();
+            }
+            //Remove current image
+            if($current_image != ""){
+                $remove_path = "../images/".$current_image;
+                $remove = unlink($remove_path);
+                if($remove == false){
+                    $_SESSION['remove'] = "&lt;div class='error text-center'>Field to remove current image.&lt;/div>";
+                    header('location:'.SITEURL.'file-update.php');
+                    die();
+                }
+            }
+        }
+        else{
+            $new_image = $current_image;
+        }
+    }
+    else{
+        $new_image = $current_image;
+    }
+</pre>
+        </div>
+    </div>
+    <footer>
+        <p>
+            By Md. Ismail. Chittagong, Bangladesh
+        </p>
+    </footer>
+</body>
+</html>

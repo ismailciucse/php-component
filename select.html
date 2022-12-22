@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>PHP Component</h2>
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+    <div class="content">
+        <h2 class="title">Insert</h2>
+        <div class="code">
+<pre>
+    $sql = "SELECT * FROM food ORDER BY id DESC";
+	$res = mysqli_query($conn, $sql);
+	if($res == true){
+		$count = mysqli_num_rows($res);
+		$sn = 1;
+		if($count>0){
+			while($rows = mysqli_fetch_assoc($res)){
+				$id = $rows['id'];
+				$title = $rows['title'];
+				$price = $rows['price'];
+				$image = $rows['image'];
+				$description = $rows['description'];
+				$category_id = $rows['category_id'];
+				$featured = $rows['featured'];
+				$active = $rows['active'];
+				echo $id;
+			}
+		}
+	}
+</pre>
+        </div>
+    </div>
+    <footer>
+        <p>
+            By Md. Ismail. Chittagong, Bangladesh
+        </p>
+    </footer>
+</body>
+</html>
